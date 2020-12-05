@@ -2,7 +2,7 @@
 <script>
 
 let parser = new RSSParser();
-parser.parseURL('https://medium.com/feed/@alexroan/', function(err, feed) {
+parser.parseURL('https://www.atomstudy.com/rss.xml', function(err, feed) {
   if (err) throw err;
   for (let i = 0; i < 3; i++) {
     const entry = feed.items[i];
