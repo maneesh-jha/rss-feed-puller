@@ -1,30 +1,12 @@
 <html><body>
+<div id="content"></div>
+
 <script>
+    function get(json) {
 
-let parser = new RSSParser();
-parser.parseURL('https://www.atomstudy.com/rss.xml', function(err, feed) {
-  if (err) throw err;
-  for (let i = 0; i < 3; i++) {
-    const entry = feed.items[i];
-    printPost(entry);
-  }
-});
+        document.getElementById('content').innerHTML = "<h2>" + json.feed.entry[0].title.$t + "</h2>";
+    }
+</script>
 
-function printPost(entry) {
-  article = document.createElement("article");
-
-  link = document.createElement("a");
-  link.setAttribute("href", entry.link);
-  link.setAttribute("target", "_blank");
-
-  h4 = document.createElement("h4");
-  h4.innerText = entry.title;
-
-  link.appendChild(h4);
-  article.appendChild(link);
-
-  blogs = document.getElementById('blog-posts');
-  blogs.appendChild(article);
-}
-</script></body>
+<script src="https://www.atomstudy.com/feeds/posts/default?alt=json-in-script&callback=get"></script></body>
 </html>
