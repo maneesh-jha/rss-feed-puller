@@ -1,0 +1,14 @@
+
+<html><body>
+
+<div id="content"></div>
+
+<script>
+    function get(json) {
+
+        document.getElementById('content').innerHTML = "<h2>" + json.feed.entry[0].title.$t + "</h2>";
+    }
+</script>
+
+<script src="https://www.atomstudy.com/feeds/posts/default?alt=json-in-script&callback=get"></script>
+</body></html>
